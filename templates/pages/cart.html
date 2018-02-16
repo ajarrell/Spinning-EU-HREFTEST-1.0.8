@@ -8,6 +8,15 @@
             {{> components/cart/status-messages}}
         </div>
 
+        <div class="paypal-credit-banner">
+            <div class="pc-banner-lg">
+                <script type="text/javascript" data-pp-payerid="VZ7FHNXYU9DBW" data-pp-placementtype="1169x50" data-pp-style="WHTBLUNLRG">(function (d, t) {"use strict";var s = d.getElementsByTagName(t)[0], n = d.createElement(t);n.src = "//www.paypalobjects.com/upstream/bizcomponents/js/merchant.js";s.parentNode.insertBefore(n, s);}(document, "script"));</script>
+            </div>
+            <div class="pc-banner-sm">
+                <script type="text/javascript" data-pp-payerid="VZ7FHNXYU9DBW" data-pp-placementtype="728x90" data-pp-style="WHTBLUNLRG">(function (d, t) {"use strict";var s = d.getElementsByTagName(t)[0], n = d.createElement(t);n.src = "//www.paypalobjects.com/upstream/bizcomponents/js/merchant.js";s.parentNode.insertBefore(n, s);}(document, "script"));</script>
+            </div>
+        </div>
+
         {{#if cart.items.length}}
             <div class="loadingOverlay"></div>
 

@@ -125,3 +125,35 @@
         text-align: center;
     }
 }
+.fc-title{
+    width:100%;
+    text-align:center;
+    font-size:26px;
+    padding:20px;
+}
+.fc-sub{
+    width:100%;
+    text-align:center;
+    font-size:16px;
+}
+#fc-more, #fc-less{
+    width:100%;
+    text-align:center;
+    margin:20px 0;
+    color:#ff4341;
+    font-size:26px;
+}
+
+.desktop-only{
+    display:block;
+    @media (max-width: 767px) {
+        display:none;
+    }
+}
+.mobile-only{
+    display:none;
+    text-align:center;
+    @media (max-width: 767px) {
+        display:block;
+    }
+}

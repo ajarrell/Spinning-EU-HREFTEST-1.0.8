@@ -44,10 +44,11 @@
 
      {{#if template_file '===' 'pages/cart'}}{{cdn 'assets/img/banners/home-banner.jpg'}}{{/if}}
      );">
+    
      {{#if template_file '===' 'pages/category'}}
         {{#if category.name '===' 'Home Bikes'}}
         {{else}}
-            {{#if category.name '===' 'Commercial Bikes'}}
+            {{#if category.name '===' 'Commercial Bike'}}
             {{else}}
             <img src="
             {{#if category.image}}
@@ -59,11 +60,28 @@
             <div class="banner-overlay"></div>
             {{/if}}
         {{/if}}
+        
+        <!-- Makes "STUDIO" clickable in the banner image -->
+        {{#if category.id '===' 31}}
+            <a href="/spin-studios/spinner-bikes" class="mobile-hidden" style="
+                position: absolute;
+                width: 10%;
+                height: 10%;
+                display: block;
+                float: right;
+                bottom: 0;
+                right: 0; z-index: 999;
+            ">
+            </a>
+        {{/if}}
+        
+        
      {{/if}}
+     
     <header id="fixed-header-container" class="header {{#if template_file '===' 'pages/category'}}category-header{{/if}} sticky" role="banner">
         <div class="container">
             <div class="row">
-                <div class="col-sm-12 col-lg-3">
+                <div class="col-xs-12 col-lg-3">
                     <ul class="list-inline">
                         <li class="pull-left">
                             {{#if template_file '===' 'pages/home'}}
@@ -88,14 +106,14 @@
                         </li>
                     </ul>
                 </div>
-                <div class="col-sm-9">
+                <div class="col-xs-12 col-lg-9">
                     <div class="row">
-                        <div class="col-sm-12">
+                        <div class="col-xs-12">
                             {{> components/common/navigation}}
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-sm-9 col-md-10">
+                        <div class="col-xs-12 col-lg-10">
                             <div class="navPages-container" id="menu" data-menu>
                                 {{> components/common/navigation-menu}}
                                 <div class="dropdown dropdown--quickSearch quickSearch" aria-hidden="true" tabindex="-1" data-prevent-quick-search-close>
@@ -103,7 +121,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-sm-3 col-md-2 hidden-sm hidden-md">
+                        <div class="col-xs-12 col-lg-2 hidden-sm hidden-md">
                             {{> components/common/navigation-tools duplicate=true}}
                         </div>
                     </div>
@@ -125,20 +143,23 @@
                 <img src="{{cdn '/assets/img/sp_spinnerbikesv2_2040x758v13.jpg'}}" alt="">
                 <div class="content-wrapper">
                     <h1 class="content-title">Spin® Bikes</h1>
-                    <p class="content-description">We created the indoor cycling category and the first Spinner® bike, setting the fitness industry standard for the past 25 years. Whether you are a high-end studio or just looking for a great ride at home, we have the world’s best bikes for you.</p>
+                    <p class="content-description">We created the indoor cycling category and the first Spinner® bike, setting the fitness industry standard for the past 25 years. Whether you are a high-end studio or just looking for a great ride at home, we have the world’s best bikes for you.<!-- test --></p>
                 </div>
             </div>
+        
         {{else}}
-            {{#if category.name '===' 'Commercial Bikes'}}
+            <!-- {{> components/above-the-fold/category}} -->
+            {{#if category.name '===' 'Commercial Bike'}}
                 <div class="above-the-fold shop-spinning-page">
-                    <img src="{{cdn '/assets/img/sp_commercial_2040x758_v2.jpg'}}" alt="">
+                    <!-- <img src="https://maddogg-assets.s3.amazonaws.com/8369b70923852ab599389c92f2ea5d9a7989dfe0ad871db65e9dc92d7e98ccae.jpg" alt=""> -->
+                    <img src="/product_images/uploaded_images/commercial-bikes-category-promo-banner.jpg" alt="">
                     <div class="content-wrapper">
                         <h1 class="content-title">Commercial Bikes</h1>
                         <p class="content-description">Built for the facility and studio environment, the commercial line of Spinner® bikes is designed to withstand the rigors of thousands of classes over several years. Precor®, the world-wide leader in personalized fitness solutions, is the exclusive manufacturer of the commercial series of bikes.</p>
                     </div>
                 </div>
             {{else}}
-                {{> components/above-the-fold/category}}
+            {{> components/above-the-fold/category}}
             {{/if}}
         {{/if}}
     {{/if}}

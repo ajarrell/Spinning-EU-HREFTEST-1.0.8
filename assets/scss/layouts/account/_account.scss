@@ -18,6 +18,8 @@
 }
 
 .account--fixedSmall {
+    margin:0 auto;
+    width: 80vw;
     @include breakpoint("medium") {
         margin: 0 auto;
         width: grid-calc(6, $total-columns);

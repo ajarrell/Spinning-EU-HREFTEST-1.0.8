@@ -95,7 +95,9 @@ export default class Product extends PageManager {
 
             return false;
         });
-
+        
+        this.handleSubscriptionPage();
+        
         next();
     }
 
@@ -105,6 +107,20 @@ export default class Product extends PageManager {
         next();
     }
 
+    handleSubscriptionPage() {
+        if (this.context.product.url.indexOf('/spin-membership-e-kit/') > -1) {
+            var pickLists = $('[data-product-attribute="product-list"]');
+
+			if (pickLists.length > 0) {
+                pickLists.each((i, pickList) => {
+                    this.pickListToDropdown($(pickList));
+                });
+				
+				this.showAllDropdowns();
+			}
+        }
+    }
+    
     googleTagManagerProduct() {
         var productName = $('.productView-title').text();
         var productId = $('#product-id').text();
@@ -411,4 +427,43 @@ export default class Product extends PageManager {
             $('.map').html('');
         }
     }
+    
+    showAllDropdowns() {
+		var wrapper = $('.productView-options .form-field[data-product-attribute="set-select"]');
+        wrapper.parent('div').show();
+        wrapper.find('.form-label').css({'display': 'block', 'opacity': 1, 'width': 'auto', 'height': 'auto', 'visibility': 'visible'});
+	}
+    
+    pickListToDropdown(pickList) {
+		var wrapper = $('<div class="form-field" data-product-attribute="set-select" />');
+		pickList.children('.form-label:first').appendTo(wrapper);
+
+		var select = $('<select class="form-select form-select--small" />');
+		var items = $('.form-radio', pickList);
+
+		var item, valueText, valueId, attributeName;
+
+		for (var i = 0; i < items.length; i++) {
+			item = $(items[i]);
+			valueId = item.attr('value');
+			valueText = item.next('.form-label').text();
+
+            if (valueId === '' || valueId === '0') {
+                continue;
+            }
+            
+			$('<option value="' + valueId + '" data-product-attribute-value="' + valueId + '">' + valueText + '</option>').appendTo(select);
+
+			if (!attributeName) {
+				attributeName = item.attr('name');
+			}
+		}
+
+		var attributeId = attributeName.replace(']', '').replace('[', '_');
+		$('.form-label', wrapper).attr('for', attributeId);
+
+		select.attr('id', attributeId).attr('name', attributeName).appendTo(wrapper);
+		wrapper.insertBefore(pickList);
+		pickList.remove();
+	}
 }

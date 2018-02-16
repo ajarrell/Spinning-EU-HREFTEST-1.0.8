@@ -79,6 +79,12 @@
       text-align: center;
     }
   }
+  .desktop-banner{
+        display: none;
+    }
+    .mobile-banner{
+        display: block!important;
+    }
 }
 
 .subcategory-boxes {

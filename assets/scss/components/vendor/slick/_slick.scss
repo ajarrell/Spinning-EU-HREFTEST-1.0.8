@@ -91,6 +91,12 @@
 
 .slick-dots {  // 2
     margin: 0;
+    @include breakpoint("medium") {
+        display:block!important;
+    }
+    display:none!important;
+    width:20%!important;
+    left:40%;
 
     li {
         @include square(32px);

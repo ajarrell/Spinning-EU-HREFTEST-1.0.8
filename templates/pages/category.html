@@ -41,7 +41,7 @@ category:
                 </div>
             </div>
             <div class="section" id="why-spinning-wrapper">
-                {{> components/category/choose-right-home-bike}}
+                <!--components/category/choose-right-home-bike}}-->
             </div>
 
             {{#if category.subcategories}}
@@ -86,6 +86,15 @@ category:
         var google_tag_params = { 
             ecomm_pagetype: 'category'
         };
+        $(document).ready(function(){
+            $(".subcategory-box--name").each(function(){
+                var sub_category = $(this).text();
+                if(sub_category=="CrossCore"){
+                    $(this).siblings("a").attr("href","http://crosscore.com/");
+                    $(this).siblings("a").attr("target","_blank");
+                }               
+            });
+        });
     </script>
 {{/partial}}
 

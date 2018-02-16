@@ -1,5 +1,6 @@
 <article class="card {{#if alternate}}card--alternate{{/if}}">
     <div class="product-id" style="display: none;">{{id}}</div>
+    <div class="product-id" style="display: none;">{{brand.name}}</div>
     <figure class="card-figure">
         <a href="{{url}}">
             <img class="card-image" src="{{getImage image 'productgallery_size' (cdn theme_settings.default_image_product)}}" alt="{{image.alt}}">
@@ -39,8 +40,15 @@
             <div class="col-sm-12">
             {{#if add_to_cart_url }}
                 <a href="{{add_to_cart_url}}" class="card-btn btn btn-red btn-xs btn-fluid btn-rounded-corners">Add to cart</a>
-            {{else}}
+            {{/if}}
+            {{#if out_of_stock_message }}
+                <a href="{{url}}" class="card-btn btn btn-red btn-xs btn-fluid btn-rounded-corners card-lbl lbl-outofstock">Notify Me</a>
+            {{/if}}
+            {{#if has_options}}
                 <a href="{{url}}" class="card-btn btn btn-red btn-xs btn-fluid btn-rounded-corners">Choose Options</a>
+            {{/if}}
+            {{#if pre_order}}
+                <a href="{{url}}" class="card-btn btn btn-red btn-xs btn-fluid btn-rounded-corners" >{{lang 'products.pre_order'}}</a>
             {{/if}}
             </div>
         </div>

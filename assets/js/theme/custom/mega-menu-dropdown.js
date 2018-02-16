@@ -23,65 +23,33 @@ function desktopMegaMenuFunctionality() {
     const megaMenuClass = '.dropdown.dropdown--megaMenu';
 
 
-    $(firstLevelMenuLinksClass).on('click', function(e) {
+    $(firstLevelMenuLinksClass).on('mouseover', function(e) {
         e.preventDefault();
-
 
         let hoveredLink = $(e.currentTarget);
         let megaMenu = hoveredLink.closest('.header').find(megaMenuClass);
 
-        if (hoveredLink.hasClass('hovered')) {
-            let el = $(megaMenuClass);
+        let html = $(e.currentTarget).find('.second-level').html();
 
-            el.removeClass('is-open');
-            el.html('');
+        // megaMenu.addClass('is-open');
+        megaMenu.show();
+        megaMenu.html(html);
+        $('.navPages-item').removeClass('subactive');
+        $(e.currentTarget).addClass('hovered subactive');
 
-            // Remove 'hovered' class on the link that was hovered in order to open this mega menu
-            // Removing this class essentially hides the arrow below the link.
-            el.closest('.header').find(`${firstLevelMenuLinksClass}.hovered`).removeClass('hovered');
-        } else {
-
-            if (hoveredLink.hasClass('has-child-menu')) {
-                let html = $(e.currentTarget).find('.second-level').html();
-                let activeDropdown = $('.dropdown:not(.dropdown-megaMenu).is-open');
-
-                activeDropdown.removeClass('is-open');
-
-                megaMenu.addClass('is-open');
-                megaMenu.html(html);
-
-                $(`${firstLevelMenuLinksClass}.hovered`).removeClass('hovered');
-                $(e.currentTarget).addClass('hovered');
-            } else {
-                $(`${firstLevelMenuLinksClass}.hovered`).removeClass('hovered');
-                megaMenu.removeClass('is-open');
-                megaMenu.html('');
-            }
-            
-        }
-
+    }).mouseout(function(e) {
+        // $('.dropdown--megaMenu').removeClass('is-open');
+        $('.dropdown--megaMenu').hide();
+        $(e.currentTarget).removeClass('hovered');
+        // $(e.currentTarget).addClass('hovered');
     });
 
-    /**
-    $(document).on('mouseenter', megaMenuClass, e => {
-        e.preventDefault();
-
-        $(e.currentTarget).addClass('is-open');
-    });
-    **/
-
-    $('.navPages-list .navPages-item.hovered').on('click', function(e) {
-        e.preventDefault();
-
-        console.log("clicked hovered");
-        let el = $(megaMenuClass);
-
-        el.removeClass('is-open');
-        el.html('');
-
-        // Remove 'hovered' class on the link that was hovered in order to open this mega menu
-        // Removing this class essentially hides the arrow below the link.
-        el.closest('.header').find(`${firstLevelMenuLinksClass}.hovered`).removeClass('hovered');
+    $('.dropdown--megaMenu').on('mouseover', function(e) {
+        $(this).show();
+        $('.navPages-item.subactive').addClass('hovered');
+    }).mouseout(function(e) {
+        $(this).hide();
+        $('.navPages-item.subactive').removeClass('hovered');
     });
 }
 

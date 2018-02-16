@@ -137,12 +137,29 @@
       text-decoration: none;
     }
   }
-  
-  .navPages-item--lvl3-link{
-    color:#888!important;
-    padding-left:1.5em;
-  }
 
+  .navpages-section {
+      height: 220px;
+  }
+  
+  .navPages-item--lvl3 {
+      margin-left: 1em;
+      line-height: 1.3;
+  }
+  
+  .navPages-item--lvl3-link {
+    font-size: 0.95em;
+    color: #888 !important;
+
+    @media (max-width: 1199px) {
+      font-size: 12px;
+    }
+
+    @media (max-width: 767px) {
+      text-decoration: none;
+    }
+  }
+    
   .featured-product {
     padding-top: 15px;
 

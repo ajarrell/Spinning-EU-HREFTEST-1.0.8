@@ -10,7 +10,7 @@
     }'
 >
     {{#each carousel.slides}}
-    <div class="heroCarousel-slide" style="background-image: url({{image}})">
+    <div class="heroCarousel-slide hslide-{{@index}}" style="background-image: url({{image}})">
         <img class="heroCarousel-image" src="{{image}}" alt="{{alt_text}}"/>
         {{#if heading}}
             {{> components/carousel-content show_background=true}}

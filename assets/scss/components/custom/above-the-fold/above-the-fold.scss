@@ -18,12 +18,16 @@
 
 #header-container > .category-above-the-fold {
   position: absolute;
-  top: 72px;
+  top: 25px;
+  
+  @media (min-width: 990px) {
+    top: 60px;
+  }
 }
 
-.cta-container {
+#header-container.isSubPage .cta-container {
   max-width: 28.571428571em;
-  padding-top: 10.714285714em;
+  padding-top: 60px !important;
   padding-bottom: 14.285714286em;
   .cta-title {
     text-transform: uppercase;
@@ -41,6 +45,10 @@
     font-size: 1.1428571429em !important;
     line-height: 1.0714285714em !important;
   }
+  
+  @media (min-width: 990px) {
+      padding-bottom: 14.285714286em;
+  }
 
   @media (min-width: 1400px) {
     font-size: 16px;
@@ -53,21 +61,28 @@
   @media (min-width: 1920px) {
     font-size: 22px;
   }
+  
+  @media (max-width: 550px) {
+    padding-top: 0 !important;
+  }
+  
+  @media (min-width: 551px) and (max-width: 767px) {
+    padding-top: 25px !important;
+  }
 
 
   @media (max-width: 767px) {
     max-width: 100% !important;
-    padding-top: 25px !important;
     padding-bottom: 50px !important;
 
     .cta-title {
-      font-size: 24px;
+      font-size: 24px !important;
       font-weight: 600;
       text-align: center;
     }
-    .cta-description {
-      display: none;
-    }
+//    .cta-description {
+//      display: none;
+//    }
     .cta-button {
       margin-top: 10px;
       display: block;
@@ -88,19 +103,4 @@
   @media (max-width: 767px) {
     display: none !important;
   }
-}
-
-@media (max-width: 767px) {
-    .desktop-banner{
-        display:none;
-    }
-}
-@media (min-width: 767px) {
-    .mobile-banner{
-        display:none;
-    }
-}
-
-.wistia_popover_embed, .wistia_placebo_close_button{
-    margin-top:-60px;
 }

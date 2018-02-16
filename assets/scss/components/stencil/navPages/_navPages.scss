@@ -203,6 +203,10 @@
                 stroke: stencilColor("navPages-color-hover");
             }
         }
+        .search-open &{
+            padding-left: 20px;
+            padding-right: 20px;
+        }
     }
 
     @media (max-width: 1199px) {

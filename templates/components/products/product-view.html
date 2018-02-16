@@ -198,7 +198,23 @@
                             {{#if name '===' 'free_shipping'}}
                                 {{#if value '===' 'true'}}
                                     <img src="{{cdn '/assets/img/icons/ship.png'}}" alt="">
-                                    <span>Free Shipping</span>
+                                    <span>$40 Shipping</span>
+                                {{/if}}
+                            {{/if}}
+                            {{#if name '===' 'zero_financing'}}
+                                {{#if value '===' 'true'}}
+                                    <div class="paypal-credit-zf" data-reveal-id="modal-financing">
+                                        <img src="{{cdn '/assets/img/icons/shield.png'}}" alt="">
+                                        <span>0% Financing</span>
+                                    </div>
+                                    <div id="modal-financing" class="modal" data-reveal>
+                                        <a href="#" class="modal-close" aria-label="{{lang 'common.close'}}" role="button">
+                                            <span aria-hidden="true">&#215;</span>
+                                        </a>
+                                        <div class="modal-body">
+                                            <script type="text/javascript" data-pp-payerid="VZ7FHNXYU9DBW" data-pp-placementtype="300x250" data-pp-style="BLUWHTYMED">(function (d, t) {"use strict";var s = d.getElementsByTagName(t)[0], n = d.createElement(t);n.src = "//www.paypalobjects.com/upstream/bizcomponents/js/merchant.js";s.parentNode.insertBefore(n, s);}(document, "script"));</script>
+                                        </div>
+                                    </div>
                                 {{/if}}
                             {{/if}}
                             {{#if name '===' 'spinning_dvds'}}
@@ -248,7 +264,7 @@
                             </div>
                             <div class="col-sm-6 productView-reviewLinkContainer">
                                 <span class="productView-reviewLink">
-                                    <a href="{{product.url}}{{#if is_ajax}}#writeReview{{/if}}"
+                                    <a href="#{{#if is_ajax}}writeReview{{/if}}"
                                        class="btn btn-rounded-corners btn-lg"
                                        {{#unless is_ajax }}data-reveal-id="modal-review-form"{{/unless}}>
                                        {{lang 'products.reviews.new'}}

@@ -30,7 +30,7 @@ function workshopSearchInit() {
 
     $('#workshop-type').on('change', function(){
         console.log("no");
-        if ($(this).val() == "71") {
+        if ($(this).val() == "78") {
             console.log("yes");
             $('#location-value').prop("disabled", true).addClass("disabled");
         } else {
@@ -39,15 +39,15 @@ function workshopSearchInit() {
     });
 
     if (/instructorcertification/.test(window.location.href)) {
-        $('#workshop-type').val("69").trigger("change");
+        $('#workshop-type').val("76").trigger("change");
     }
 
     if (/continuingeducation/.test(window.location.href)) {
-        $('#workshop-type').val("70").trigger("change");
+        $('#workshop-type').val("77").trigger("change");
     }
 
     if (/onlinelearning/.test(window.location.href)) {
-        $('#workshop-type').val("71").trigger("change");
+        $('#workshop-type').val("78").trigger("change");
         $('.refine-results input[type="submit"]').click();
     }
 

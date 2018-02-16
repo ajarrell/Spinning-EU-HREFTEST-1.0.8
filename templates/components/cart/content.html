@@ -9,7 +9,7 @@
     </thead>
     <tbody class="cart-list">
         {{#each cart.items}}
-            <tr class="cart-item" data-item-row>
+            <tr class="cart-item" data-item-row data-product-id="{{product_id}}">
                 <td class="cart-item-block cart-item-figure">
                     {{#if type '==' 'GiftCertificate'}}
                         <img class="cart-item-fixed-image" src="{{cdn ../../theme_settings.default_image_gift_certificate}}" alt="GiftCertificate">
@@ -22,6 +22,7 @@
                         <p class="cart-item-brand">{{brand.name}}</p>
                     {{/if}}
                     <h4 class="cart-item-name"><a href="{{url}}">{{name}}</a></h4>
+                    <span class="cart-sku" style="display:none">{{sku}}</span>
                     {{#if release_date}}
                         <p>({{release_date}})</p>
                     {{/if}}
@@ -39,6 +40,17 @@
                                 </dd>
                             {{/each}}
                         </dl>
+                    {{/if}}
+                    
+                    {{#if custom_fields}}
+                        {{#each custom_fields}}
+                            {{#if name '===' 'enrollStatus'}}
+                                <div class="prod-is-training"></div>
+                            {{/if}}
+                            {{#if name '===' 'Location'}}
+                                <div class="prod-is-training"></div>
+                            {{/if}}
+                        {{/each}}
                     {{/if}}
 
                     {{#if options}}

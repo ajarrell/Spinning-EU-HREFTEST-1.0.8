@@ -26,14 +26,16 @@ category:
     {{#if category.products}}
         <div class="gradient fromOrange toRed subcategoryActionBar">
             <div class="row">
-                <div class="col-sm-9">
+                <div class="col-sm-12">
                     {{> components/products/filter sort=pagination.category.sort}}
                 </div>
+                <!-- 
                 <div class="col-sm-3">
                     {{#if pagination}}
-                        {{> components/common/gradient-paginator pagination.category}}
+                        { { > components/common/gradient-paginator pagination.category } }
                     {{/if}}
                 </div>
+                -->
             </div>
         </div>
     {{/if}}
@@ -63,7 +65,7 @@ category:
 
 
             <div class="section grey" id="why-spinning-wrapper">
-                {{> components/category/why-spinning-bikes}}
+                <!--components/category/why-spinning-bikes}}-->
             </div>
             <div id="category-bottom-content-block"></div>
         </main>

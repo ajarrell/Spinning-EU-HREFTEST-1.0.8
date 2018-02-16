@@ -44,8 +44,8 @@ img {
 
     &.Find.a.Class {
         .padded-content {
-            /*padding: 0;
-            max-width: none;*/
+            /* padding: 0;
+            max-width: none; */
             iframe {
                 border: none;
             }
@@ -102,6 +102,18 @@ img {
         .left-right-block {
             overflow: auto;
             margin-top: 63px;
+            &.image-right {
+                @media (max-width: 767px) {
+                    display: flex;
+                    flex-direction: column-reverse;
+                }
+            }
+            &.image-left {
+                @media (max-width: 767px) {
+                    display: flex;
+                    flex-direction: column;
+                }
+            }
         }
         .content {
             width: 60%;
@@ -859,13 +871,15 @@ p.no-results {
     padding-bottom: 0;
 }
 
+
 .Newsletter #mc_embed_signup {
     .mc-field-group {
-        &:nth-of-type(4), &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(8) {
-            display: none;
+        &:nth-of-type(5), &:nth-of-type(6), &:nth-of-type(8) {
+            /* display: none; */
         }
         &.input-group {
             width: 100%;
+            text-align: left;
             strong {
                 font-size: remCalc(16px);
             }
@@ -880,9 +894,171 @@ p.no-results {
                 label {
                     padding-bottom: 0;
                 }
-                margin-bottom: 1rem;
+                /* margin-bottom: 1rem; */
             }
         }
     }
 }
 
+.errorMessage, #ContentPlaceHolder1_cvLocation {
+    text-align: center !important;
+}
+
+.page {
+    .padded-content {
+        @media (max-width: 767px) {
+            .warranty-benefits--slide-content {
+                padding: 0 !important;
+            }
+        }
+    }
+}
+
+.category-body-lifestyle{
+	.banner-overlay,.category-banner,.cta-container{
+		display: none;
+	}
+	.category-above-the-fold{
+		top: 0!important;
+	}
+	@media (min-width: 768px){
+		.mobile-img{
+			display: none;
+		}	
+		.category-banner{
+			display: block;
+		}
+	}
+}
+
+.category-body-commercial{
+	.banner-overlay,.category-banner,.cta-container,.content-wrapper,.above-the-fold{
+		display: none;
+	}
+	.category-above-the-fold{
+		top: 0!important;
+    	.breadcrumbs{
+    	    display: none;
+    	}
+	}
+	@media (min-width: 768px){
+		.mobile-img{
+			display: none;
+		}	
+		.category-banner,.above-the-fold{
+			display: block;
+		}
+    	.category-above-the-fold{
+        	.breadcrumbs{
+        	    display: block;
+        	}
+    	}
+	}
+}
+
+.hslide-0, .hslide-1 {
+    @media (min-width:801px){
+        .heroCarousel-content{
+            left: 4em;
+            padding: 0;
+            bottom: 1.5em;
+            width: 40em;
+            .heroCarousel-action{
+                margin: 0;
+            }
+        }
+    }
+    @media (min-width:1024px){
+        .heroCarousel-content{
+        	left: 5em;
+            bottom: 2.5em;
+        }
+        .heroCarousel-title{
+            font-size: 32px;
+        }
+    }
+    @media (min-width:1200px){
+        .heroCarousel-content{
+        	left: 6em;
+            bottom: 2em;
+        }
+        .heroCarousel-title{
+            font-size: 42px;
+        }
+    }
+    @media (min-width:1366px){
+        .heroCarousel-content{
+            bottom: 3em;
+        }
+    }
+    @media (min-width:1600px){
+        .heroCarousel-content{
+        	left: 9em;
+            bottom: 5em;
+        }
+    }
+}
+
+.navBar--account{
+    display: block;
+}
+
+/* Paypal Credit */
+.page-cart{
+    .page-heading{
+        margin-bottom: 1rem;
+    }
+}
+.paypal-credit-banner{
+    position: relative;
+    padding: 15px 0 30px;
+    text-align: center;
+    &:before{
+        content: "";
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 1;
+    }
+    a{
+        display: block;
+    }
+    .pc-banner-sm{
+        display: none;
+    }
+    @media (max-width: 991px){
+        .pc-banner-sm{
+            display: block;
+        }
+        .pc-banner-lg{
+            display: none;
+        }
+    }
+}
+.paypal-credit-zf{
+    cursor: pointer;
+}
+#modal-financing{
+    margin: 0;
+    width: 300px;
+    max-width: 100%;
+    .modal-body{
+        padding: 0;
+    }
+    .modal-close{
+        right: 0;
+        top: 0;
+    }
+}
+
+.card-lbl{
+    &.lbl-outofstock{
+        background: #989898!important;
+        border-color: #989898!important;
+        &:active{
+            box-shadow: 0 0 0 5px #e0e0e0!important;
+        }
+    }
+}
