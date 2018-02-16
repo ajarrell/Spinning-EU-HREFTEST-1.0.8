@@ -1,0 +1,43 @@
+---
+products:
+    new:
+        limit: {{theme_settings.homepage_new_products_count}}
+    featured:
+        limit: {{theme_settings.homepage_featured_products_count}}
+    top_sellers:
+        limit: {{theme_settings.homepage_top_products_count}}
+carousel: {{theme_settings.homepage_show_carousel}}
+blog:
+    recent_posts:
+        limit: {{theme_settings.homepage_blog_posts_count}}
+---
+
+{{#partial "page"}}
+    <div class="section" id="explore">
+        {{> components/home/explore}}
+    </div>
+    
+    <div class="section" id="shop-spinning">
+        {{> components/home/shop-spinning}}
+    </div>
+
+    <div class="section grey" id="as-seen-in">
+        {{> components/home/as-seen-in}}
+    </div>
+
+    <div class="section grey" id="the-spinning-difference">
+        {{> components/home/spinning-difference}}
+    </div>
+
+    <div class="section" id="our-fans">
+        {{> components/home/our-fans}}
+    </div>
+
+    <script>
+        var google_tag_params = { 
+            ecomm_pagetype: 'home'
+        };
+    </script>
+
+{{/partial}}
+{{> layout/base}}

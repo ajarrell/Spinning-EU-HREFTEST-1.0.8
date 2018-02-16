@@ -1,0 +1,22 @@
+<div class="above-the-fold">
+    <div class="container">
+        {{> components/common/breadcrumbs breadcrumbs=breadcrumbs}}
+
+        <div class="cta-container">
+            <div class="cta-title">
+                {{#if category.name}}
+                    {{category.name}}
+                {{else}}
+                    Subcategory Name
+                {{/if}}
+            </div>
+            <div class="cta-description">
+                {{#if category.description}}
+                    {{category.description}}
+                {{else}}
+                    Subcategory description goes here.
+                {{/if}}
+            </div>
+        </div>
+    </div>
+</div>
